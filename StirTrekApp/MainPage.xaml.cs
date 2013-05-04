@@ -57,6 +57,13 @@ namespace StirTrekApp
 
     public class Session
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Abstract { get; set; }
+        public List<int> SpeakerIds { get; set; }
+        public int TimeSlotId { get; set; }
+        public int TrackId { get; set; }
+        public List<string> Tags { get; set; } 
     }
 
     public class Speaker    
@@ -77,7 +84,7 @@ namespace StirTrekApp
 
     public class TimeSlot
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
     }

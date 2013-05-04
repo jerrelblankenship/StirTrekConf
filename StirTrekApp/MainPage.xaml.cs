@@ -44,8 +44,9 @@ namespace StirTrekApp
         public List<TimeSlot> TimeSlots { get; set; }
         public List<Track> Tracks { get; set; }
         public List<Speaker> Speakers { get; set; }
-        public List<Session> Sessions { get; set; } 
- 
+        public List<Session> Sessions { get; set; }
+        public List<Sponsor> Sponsors { get; set; }
+
         public StirTrekFeed()
         {
             TimeSlots = new List<TimeSlot>();
@@ -53,6 +54,16 @@ namespace StirTrekApp
             Speakers = new List<Speaker>();
             Sessions = new List<Session>();
         }
+    }
+
+    public class Sponsor
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string LogoUrl { get; set; }
+        public string URL { get; set; }
+        public string SponsorType { get; set; }
     }
 
     public class Session

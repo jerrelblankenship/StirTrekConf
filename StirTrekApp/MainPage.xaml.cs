@@ -14,13 +14,21 @@ using StirTrekWPDomain.Domain;
 
 namespace StirTrekApp
 {
+    using StirTrekWPDomain;
+
     public partial class MainPage : PhoneApplicationPage
     {
+        public Processor DataProcessor { get; set; }
+        public StirTrekFeed StirTrekFeed { get; set; }
+
         // Constructor
         public MainPage()
         {
+            DataProcessor = new Processor();
             InitializeComponent();
             GetStirTrekData();
+
+            
         }
 
         public void GetStirTrekData()
@@ -32,10 +40,10 @@ namespace StirTrekApp
             wbclient.OpenReadAsync(jsonUri, UriKind.Absolute);  
         }
 
-        static void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
+        public void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
         {
-            var data = new DataContractJsonSerializer(typeof(StirTrekFeed));
-            var stirTrekObject = data.ReadObject(e.Result);
+            StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
+            SessionGrid.DataContext = StirTrekFeed.Sessions;
         }
     }
 }

@@ -18,7 +18,24 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Pivot Title="Stir Trek WP">
             <controls:PivotItem Header="Schedule"></controls:PivotItem>
-            <controls:PivotItem Header="Sessions"></controls:PivotItem>
+            <controls:PivotItem Header="Sessions">
+               <Grid Name="SessionGrid">
+                    <Grid.Resources>
+                        <DataTemplate x:Name="DataTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}"/>
+                                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="8" Text="{Binding Abstract}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <ItemsControl x:Name="SessionItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource DataTemplate}"/>
+                </Grid>
+            </controls:PivotItem>
             <controls:PivotItem Header="Speakers"></controls:PivotItem>
             <controls:PivotItem Header="Location"></controls:PivotItem>
         </controls:Pivot>

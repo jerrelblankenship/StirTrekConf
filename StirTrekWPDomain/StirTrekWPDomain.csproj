@@ -58,6 +58,7 @@
     <Compile Include="Domain\StirTrekFeed.cs" />
     <Compile Include="Domain\TimeSlot.cs" />
     <Compile Include="Domain\Track.cs" />
+    <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

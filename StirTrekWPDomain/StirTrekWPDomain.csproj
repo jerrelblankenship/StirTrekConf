@@ -49,6 +49,12 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Session.cs" />
+    <Compile Include="Domain\Speaker.cs" />
+    <Compile Include="Domain\Sponsor.cs" />
+    <Compile Include="Domain\StirTrekFeed.cs" />
+    <Compile Include="Domain\TimeSlot.cs" />
+    <Compile Include="Domain\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

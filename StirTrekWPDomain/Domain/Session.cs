@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StirTrekApp
+namespace StirTrekWPDomain.Domain
 {
     public class Session
     {

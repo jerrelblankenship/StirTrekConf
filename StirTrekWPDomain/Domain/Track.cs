@@ -1,4 +1,4 @@
-﻿namespace StirTrekApp
+﻿namespace StirTrekWPDomain.Domain
 {
     public class Track
     {

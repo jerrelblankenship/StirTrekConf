@@ -29,7 +29,7 @@
                 scheduleList.Add(new ScheduleEntry{TimeSlot = timeSlot, Sessions = sessionList});
             }
 
-            return scheduleList;
+            return scheduleList.OrderBy(x => x.TimeSlot.StartTime).ToList();
         }
     }
 

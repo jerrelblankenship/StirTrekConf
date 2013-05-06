@@ -17,7 +17,34 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Pivot Title="Stir Trek WP">
-            <controls:PivotItem Header="Schedule"></controls:PivotItem>
+            <controls:PivotItem Header="Schedule">
+                <Grid Name="ScheduleGrid">
+                    <Grid.Resources>
+                        <DataTemplate x:Name="ScheduleDataTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" FontWeight="ExtraBold" Text="{Binding TimeSlot.DisplayTimeRange}"></TextBlock>
+                                <ListBox Grid.Row="1" x:Name="ListBox1" Margin="5" HorizontalAlignment="Left" ItemsSource="{Binding Sessions}" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical" Margin="2">
+                                                <TextBlock Text="{Binding Name}" Margin="2" />
+                                                <TextBlock Text="{Binding DisplayTags}" Margin="3" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                            </Grid>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <ItemsControl x:Name="ScheduleItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource ScheduleDataTemplate}"></ItemsControl>
+                </Grid>
+            </controls:PivotItem>
             <controls:PivotItem Header="Sessions">
                <Grid Name="SessionGrid">
                     <Grid.Resources>

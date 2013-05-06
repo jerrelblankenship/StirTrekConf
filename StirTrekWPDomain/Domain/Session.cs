@@ -14,6 +14,16 @@ namespace StirTrekWPDomain.Domain
         public int TimeSlotId { get; set; }
         [DefaultValue(-99)]
         public int TrackId { get; set; }
-        public List<string> Tags { get; set; } 
+        public List<string> Tags { get; set; }
+
+        public string DisplayTags
+        {
+            get { return string.Join(",", Tags); }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Name);
+        }
     }
 }

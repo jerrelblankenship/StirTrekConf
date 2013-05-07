@@ -7,6 +7,11 @@ namespace StirTrekWPDomain.Domain
 
     public class Session
     {
+        public Session()
+        {
+            Speakers = new List<Speaker>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Abstract { get; set; }
@@ -29,7 +34,22 @@ namespace StirTrekWPDomain.Domain
 
         public string DisplaySpeakers
         {
-            get { return string.Join(" | ", Speakers); }
+            get
+            {
+                return Speakers != null 
+                    ? string.Join(" | ", Speakers) 
+                    : string.Empty;
+            }
+        }
+
+        public string DisplayTrackInfo
+        {
+            get
+            {
+                return Track != null
+                    ? string.Format("{0} ({1})", Track.Name, Track.Location)
+                    : string.Empty;
+            }
         }
 
         public override string ToString()

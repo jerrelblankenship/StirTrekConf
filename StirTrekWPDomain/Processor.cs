@@ -27,15 +27,13 @@
         {
             foreach (var session in returnFeed.Sessions)
             {
-                foreach (var speaker in session.SpeakerIds.Select(speakerId => 
-                    returnFeed.Speakers.FirstOrDefault(x => x.Id == speakerId)))
-                {
-                    session.Speakers = new List<Speaker>();
+                session.Speakers = new List<Speaker>();
 
-                    if (speaker != null)
-                    {
-                        session.Speakers.Add(speaker);
-                    }
+                foreach (var speaker in 
+                    session.SpeakerIds.Select(speakerId => returnFeed.Speakers.FirstOrDefault(x => x.Id == speakerId))
+                    .Where(speaker => speaker != null))
+                {
+                    session.Speakers.Add(speaker);
                 }
 
                 session.Track = returnFeed.Tracks.FirstOrDefault(x => x.Id == session.TrackId);

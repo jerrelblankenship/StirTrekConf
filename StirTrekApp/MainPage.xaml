@@ -16,34 +16,36 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <controls:Pivot Title="Stir Trek WP">
+        <controls:Pivot Title="Stir Trek WP" Foreground="{StaticResource PhoneAccentBrush}">
             <controls:PivotItem Header="Schedule">
-                <Grid Name="ScheduleGrid">
-                    <Grid.Resources>
+                <ListBox Name="ScheduleList" Margin="3">
+                    <ListBox.ItemTemplate>
                         <DataTemplate x:Name="ScheduleDataTemplate">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition />
-                                    <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontWeight="ExtraBold" Text="{Binding TimeSlot.DisplayTimeRange}"></TextBlock>
-                                <ListBox Grid.Row="1" x:Name="ListBox1" Margin="5" HorizontalAlignment="Left" ItemsSource="{Binding Sessions}" >
+                                <TextBlock Grid.Row="0" Style="{StaticResource ScheduleHeader}" Text="{Binding TimeSlot.DisplayTimeRange}"></TextBlock>
+                                <ListBox Grid.Row="1" x:Name="ListBox1" Style="{StaticResource ScheduleEntry}" ItemsSource="{Binding Sessions}" 
+                                         ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Vertical" Margin="2">
-                                                <TextBlock Text="{Binding Name}" Margin="2" />
-                                                <TextBlock Text="{Binding DisplayTags}" Margin="3" />
+                                            <StackPanel Orientation="Vertical" Margin="0,5,0,5">
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding Name}" />
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}"/>
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding Track.Location}"/>
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding Track.Name}"/>
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTags}" />
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-
                             </Grid>
                         </DataTemplate>
-                    </Grid.Resources>
-                    <ItemsControl x:Name="ScheduleItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource ScheduleDataTemplate}"></ItemsControl>
-                </Grid>
+                    </ListBox.ItemTemplate>
+                    <!--<ItemsControl x:Name="ScheduleItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource ScheduleDataTemplate}"></ItemsControl>-->
+                </ListBox>
             </controls:PivotItem>
             <controls:PivotItem Header="Sessions">
                <Grid Name="SessionGrid">

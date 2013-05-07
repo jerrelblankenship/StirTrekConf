@@ -44,7 +44,7 @@ namespace StirTrekApp
         {
             StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
             SessionGrid.DataContext = StirTrekFeed.Sessions;
-            ScheduleGrid.DataContext = DataProcessor.GenerateSchedule(StirTrekFeed);
+            ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
         }
     }
 }

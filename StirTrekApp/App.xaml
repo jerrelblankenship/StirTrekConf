@@ -7,6 +7,19 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        <Style x:Key="ScheduleHeader" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <Setter Property="Margin" Value="{StaticResource PhoneHorizontalMargin}"/>
+            <!--<Setter Property="TextDecorations" Value="Underline"></Setter>-->
+        </Style>
+
+        <Style x:Key="ScheduleEntry" TargetType="ListBox" >
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="FontStyle" Value="Italic"></Setter>
+            <!--<Setter Property="Margin" Value="{StaticResource PhoneHorizontalMargin}"/>-->
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

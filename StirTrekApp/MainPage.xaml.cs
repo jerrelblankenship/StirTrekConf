@@ -46,5 +46,14 @@ namespace StirTrekApp
             SessionList.ItemsSource = StirTrekFeed.Sessions;
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
         }
+
+        private void ScheduleList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 1)
+            {
+                NavigationService.Navigate(
+                    new Uri(string.Format("/Pages/SessionDetail.xaml?sessionId={0}", SessionId.Text), UriKind.Relative));
+            }
+        }
     }
 }

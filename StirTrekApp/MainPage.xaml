@@ -19,7 +19,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Pivot Title="Stir Trek WP" Foreground="{StaticResource PhoneAccentBrush}">
             <controls:PivotItem Header="Schedule">
-                <ListBox Name="ScheduleList" Margin="3">
+                <ListBox Name="ScheduleList" Margin="3" SelectionChanged="ScheduleList_OnSelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:Name="ScheduleDataTemplate">
                             <Grid>
@@ -39,6 +39,7 @@
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding Name}" />
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}"/>
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTrackInfo}"/>
+                                                <TextBlock x:Name="SessionId" Text="{Binding Id}" Visibility="Collapsed"></TextBlock>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>

@@ -46,29 +46,63 @@
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    <!--<ItemsControl x:Name="ScheduleItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource ScheduleDataTemplate}"></ItemsControl>-->
                 </ListBox>
             </controls:PivotItem>
             <controls:PivotItem Header="Sessions">
-               <Grid Name="SessionGrid">
-                    <Grid.Resources>
-                        <DataTemplate x:Name="DataTemplate">
+               <ListBox Name="SessionList" Margin="3">
+                   <ListBox.ItemTemplate>
+                       <DataTemplate x:Name="SessionDataTemplate">
+                           <Grid>
+                               <Grid.RowDefinitions>
+                                   <RowDefinition></RowDefinition>
+                                   <RowDefinition></RowDefinition>
+                               </Grid.RowDefinitions>
+                               
+                               <TextBlock Grid.Row="0" Text="{Binding Name}" />
+                               <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,5">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" />
+                                    <TextBlock TextWrapping="Wrap" Margin="0,3,0,3" Text="{Binding DisplayTrackInfo}" />
+                               </StackPanel>
+                               
+                           </Grid>
+                       </DataTemplate>
+                   </ListBox.ItemTemplate>
+               </ListBox>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Speakers">
+                <ListBox Name="SpeakerList" Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="SpeakerDataTemplate">
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}"/>
-                                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="8" Text="{Binding Abstract}"/>
+                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Speaker\ApplicationIcon.png"></Image>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
                             </Grid>
                         </DataTemplate>
-                    </Grid.Resources>
-                    <ItemsControl x:Name="SessionItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource DataTemplate}"/>
-                </Grid>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
-            <controls:PivotItem Header="Speakers"></controls:PivotItem>
-            <controls:PivotItem Header="Location"></controls:PivotItem>
+            <controls:PivotItem Header="Sponsors">
+                <ListBox Name="SponsorList" Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="SponsorDataTemplate">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Sponsor\ApplicationIcon.png"></Image>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
         </controls:Pivot>
     </Grid>
  

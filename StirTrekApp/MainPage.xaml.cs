@@ -43,7 +43,7 @@ namespace StirTrekApp
         public void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
         {
             StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
-            SessionGrid.DataContext = StirTrekFeed.Sessions;
+            SessionList.ItemsSource = StirTrekFeed.Sessions;
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
         }
     }

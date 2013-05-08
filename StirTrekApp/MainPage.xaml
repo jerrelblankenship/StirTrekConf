@@ -12,32 +12,97 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    x:Name="myPage">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <controls:Pivot Title="Stir Trek WP">
-            <controls:PivotItem Header="Schedule"></controls:PivotItem>
-            <controls:PivotItem Header="Sessions">
-               <Grid Name="SessionGrid">
-                    <Grid.Resources>
-                        <DataTemplate x:Name="DataTemplate">
+        <controls:Pivot Title="Stir Trek WP" Foreground="{StaticResource PhoneAccentBrush}">
+            <controls:PivotItem Header="Schedule">
+                <ListBox Name="ScheduleList" Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="ScheduleDataTemplate">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition />
+                                    <RowDefinition/>
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-
-                                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}"/>
-                                <TextBlock Grid.Row="1" TextWrapping="Wrap" FontSize="8" Text="{Binding Abstract}"/>
+                                
+                                <Grid Grid.Row="0" Background="#D5CCC1" Width="{Binding ElementName=myPage, Path=Parent.ActualWidth}">
+                                    <TextBlock Style="{StaticResource ScheduleHeader}" Text="{Binding TimeSlot.DisplayTimeRange}"></TextBlock>
+                                </Grid>
+                                <ListBox Grid.Row="1" x:Name="ListBox1" Style="{StaticResource ScheduleEntry}" ItemsSource="{Binding Sessions}" 
+                                         ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical" Margin="0,5,0,5">
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding Name}" />
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}"/>
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTrackInfo}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                             </Grid>
                         </DataTemplate>
-                    </Grid.Resources>
-                    <ItemsControl x:Name="SessionItemsControl" ItemsSource="{Binding}" ItemTemplate="{StaticResource DataTemplate}"/>
-                </Grid>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
-            <controls:PivotItem Header="Speakers"></controls:PivotItem>
-            <controls:PivotItem Header="Location"></controls:PivotItem>
+            <controls:PivotItem Header="Sessions">
+               <ListBox Name="SessionList" Margin="3">
+                   <ListBox.ItemTemplate>
+                       <DataTemplate x:Name="SessionDataTemplate">
+                           <Grid>
+                               <Grid.RowDefinitions>
+                                   <RowDefinition></RowDefinition>
+                                   <RowDefinition></RowDefinition>
+                               </Grid.RowDefinitions>
+                               
+                               <TextBlock Grid.Row="0" Text="{Binding Name}" />
+                               <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,5">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" />
+                                    <TextBlock TextWrapping="Wrap" Margin="0,3,0,3" Text="{Binding DisplayTrackInfo}" />
+                               </StackPanel>
+                               
+                           </Grid>
+                       </DataTemplate>
+                   </ListBox.ItemTemplate>
+               </ListBox>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Speakers">
+                <ListBox Name="SpeakerList" Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="SpeakerDataTemplate">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Speaker\ApplicationIcon.png"></Image>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Sponsors">
+                <ListBox Name="SponsorList" Margin="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="SponsorDataTemplate">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Sponsor\ApplicationIcon.png"></Image>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
         </controls:Pivot>
     </Grid>
  

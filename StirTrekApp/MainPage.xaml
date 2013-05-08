@@ -19,7 +19,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <controls:Pivot Title="Stir Trek WP" Foreground="{StaticResource PhoneAccentBrush}">
             <controls:PivotItem Header="Schedule">
-                <ListBox Name="ScheduleList" Margin="3" SelectionChanged="ScheduleList_OnSelectionChanged">
+                <ListBox Name="ScheduleList" Margin="3">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:Name="ScheduleDataTemplate">
                             <Grid>
@@ -31,7 +31,7 @@
                                 <Grid Grid.Row="0" Background="#D5CCC1" Width="{Binding ElementName=myPage, Path=Parent.ActualWidth}">
                                     <TextBlock Style="{StaticResource ScheduleHeader}" Text="{Binding TimeSlot.DisplayTimeRange}"></TextBlock>
                                 </Grid>
-                                <ListBox Grid.Row="1" x:Name="ListBox1" Style="{StaticResource ScheduleEntry}" ItemsSource="{Binding Sessions}" 
+                                <ListBox SelectionChanged="ScheduleList_OnSelectionChanged" Grid.Row="1" x:Name="ListBox1" Style="{StaticResource ScheduleEntry}" ItemsSource="{Binding Sessions}" 
                                          ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -39,7 +39,7 @@
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding Name}" />
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}"/>
                                                 <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTrackInfo}"/>
-                                                <TextBlock x:Name="SessionId" Text="{Binding Id}" Visibility="Collapsed"></TextBlock>
+                                                <TextBlock Text="{Binding Id}" Visibility="Collapsed"></TextBlock>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>

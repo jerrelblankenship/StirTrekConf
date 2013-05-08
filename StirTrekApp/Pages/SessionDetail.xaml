@@ -29,9 +29,20 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Session ID: "></TextBlock>
-                <TextBlock Name="SessionID"></TextBlock>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Session ID: "></TextBlock>
+                    <TextBlock Name="SessionID"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Session Name: "></TextBlock>
+                    <TextBlock Name="SessionName"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Session Abstract: " TextWrapping="Wrap"></TextBlock>
+                    <TextBlock Name="SessionAbstract" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>

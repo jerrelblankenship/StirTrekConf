@@ -10,20 +10,33 @@ using Microsoft.Phone.Shell;
 
 namespace StirTrekApp.Pages
 {
+    using StirTrekWPDomain.Domain;
+
     public partial class SessionDetail : PhoneApplicationPage
     {
+        public Session Session { get; set; }
+
         public SessionDetail()
         {
             InitializeComponent();
             this.Loaded += SessionDetail_Loaded;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            string parameter = string.Empty;
+            if (NavigationContext.QueryString.TryGetValue("sessionId", out parameter))
+            {
+                Session = (App.Current as App).StirTrekFeed.Sessions.FirstOrDefault(x => x.Id == Convert.ToInt32(parameter));
+            }
+        }
+
         void SessionDetail_Loaded(object sender, RoutedEventArgs e)
         {
-            if (NavigationContext.QueryString["sessionId"].Length > 0)
-            {
-                SessionID.Text = NavigationContext.QueryString["sessionId"];
-            }
+            SessionID.Text = Session.Id.ToString();
+            SessionName.Text = Session.Name;
+            SessionAbstract.Text = Session.Abstract;
         }
     }
 }

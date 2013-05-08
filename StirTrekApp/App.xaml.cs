@@ -15,6 +15,8 @@ using Microsoft.Phone.Shell;
 
 namespace StirTrekApp
 {
+    using StirTrekWPDomain.Domain;
+
     public partial class App : Application
     {
         /// <summary>
@@ -22,6 +24,8 @@ namespace StirTrekApp
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public PhoneApplicationFrame RootFrame { get; private set; }
+
+        public StirTrekFeed StirTrekFeed { get; set; }
 
         /// <summary>
         /// Constructor for the Application object.

@@ -14,6 +14,7 @@ using StirTrekWPDomain.Domain;
 
 namespace StirTrekApp
 {
+    using Pages;
     using StirTrekWPDomain;
 
     public partial class MainPage : PhoneApplicationPage
@@ -43,8 +44,12 @@ namespace StirTrekApp
         public void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
         {
             StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
+            (App.Current as App).StirTrekFeed = StirTrekFeed;
+
             SessionList.ItemsSource = StirTrekFeed.Sessions;
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
+            SpeakerList.ItemsSource = StirTrekFeed.Speakers;
+            SponsorList.ItemsSource = StirTrekFeed.Sponsors;
         }
 
         private void ScheduleList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -52,7 +57,7 @@ namespace StirTrekApp
             if (e.AddedItems.Count == 1)
             {
                 NavigationService.Navigate(
-                    new Uri(string.Format("/Pages/SessionDetail.xaml?sessionId={0}", SessionId.Text), UriKind.Relative));
+                    new Uri(string.Format("/Pages/SessionDetail.xaml?sessionId={0}", ((Session)e.AddedItems[0]).Id), UriKind.Relative));
             }
         }
     }

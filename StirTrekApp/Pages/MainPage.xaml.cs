@@ -4,6 +4,7 @@ namespace StirTrekApp.Pages
     using System.IO;
     using System.Linq;
     using System.Net;
+    using System.Windows;
     using System.Windows.Controls;
     using Microsoft.Phone.Controls;
     using Microsoft.Phone.Shell;
@@ -20,8 +21,18 @@ namespace StirTrekApp.Pages
         public MainPage()
         {
             DataProcessor = new Processor();
+            LoadInitialDefaultJsonData();
             InitializeComponent();
             GetStirTrekData();
+        }
+
+        public void LoadInitialDefaultJsonData()
+        {
+            System.IO.Stream defaultStream =
+                Application.GetResourceStream(new Uri(@"/StirTrekApp;component/Content/DefaultJsonData.txt",
+                                                      UriKind.Relative)).Stream;
+            DataProcessor.LoadInitialJsonData(defaultStream);
+
         }
 
         public void GetStirTrekData()
@@ -81,17 +92,24 @@ namespace StirTrekApp.Pages
 
         public void wbclient_OpenReadCompleted_LastUpdate(object sender, OpenReadCompletedEventArgs e)
         {
-            var needsUpdated = DataProcessor.CheckCacheValue(e.Result);
-
-            if (needsUpdated)
+            try
             {
-                var jsonUri = new Uri("http://stirtrek.com/Feed/JSON");
+                var needsUpdated = DataProcessor.CheckCacheValue(e.Result);
 
-                WbClient.OpenReadCompleted -= wbclient_OpenReadCompleted_LastUpdate;
-                WbClient.OpenReadCompleted += wbclient_OpenReadCompleted;
-                WbClient.OpenReadAsync(jsonUri, UriKind.Absolute); 
+                if (needsUpdated)
+                {
+                    var jsonUri = new Uri("http://stirtrek.com/Feed/JSON");
+
+                    WbClient.OpenReadCompleted -= wbclient_OpenReadCompleted_LastUpdate;
+                    WbClient.OpenReadCompleted += wbclient_OpenReadCompleted;
+                    WbClient.OpenReadAsync(jsonUri, UriKind.Absolute); 
+                }
+                else
+                {
+                    GetDefaultJsonData();
+                }
             }
-            else
+            catch (Exception)
             {
                 GetDefaultJsonData();
             }

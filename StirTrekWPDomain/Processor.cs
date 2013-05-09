@@ -2,12 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO.IsolatedStorage;
     using System.Linq;
-    using System.Text;
     using Domain;
     using System.IO;
-    using MathBlaster;
     using Newtonsoft.Json;
 
     public class Processor
@@ -22,17 +19,6 @@
         public StirTrekFeed LoadStirTrekData(Stream webStream)
         {
             var streamReader = new StreamReader(webStream);
-            
-            //using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-            //{
-            //    using (var sw = new IsolatedStorageFileStream()) StreamWriter(store.OpenFile("DefaultJsonData.txt", FileMode.OpenOrCreate, FileAccess.Write)))
-            //    {
-            //        if (store.FileExists("DefaultJsonData.txt"))
-            //        {
-            //            var reader = new StreamReader()
-            //        }
-            //    }
-            //}
             
             var serializer = new JsonSerializer
                 {
@@ -96,35 +82,21 @@
                 _settingsStorage.LastUpdated = dateLastUpdated;
                 return true;
             }
-            else
+            
+            if (dateLastUpdated > lastUpdateDate)
             {
-                if (dateLastUpdated > lastUpdateDate)
-                {
-                    _settingsStorage.LastUpdated = dateLastUpdated;
-                    return true;
-                }
-                return false;
+                _settingsStorage.LastUpdated = dateLastUpdated;
+                return true;
             }
+            return false;
         }
 
         public StirTrekFeed LoadDefaultStirTrekData()
         {
             var json = _settingsStorage.DefaultJsonData;
 
-            //using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-            //{
-            //    using (var reader = new StreamReader(store.OpenFile("DefaultJsonData.txt", FileMode.Open, FileAccess.Read)))
-            //    {
-            //        if (store.FileExists("DefaultJsonData.txt"))
-            //        {
-            //            json = reader.ReadToEnd();
-            //        }
-                    
-            //    }
-            //}
-
             byte[] byteArray = StringToAscii(json);
-            MemoryStream stream = new MemoryStream(byteArray);
+            var stream = new MemoryStream(byteArray);
             var streamReader = new StreamReader(stream);
 
             var serializer = new JsonSerializer
@@ -142,14 +114,23 @@
 
         public static byte[] StringToAscii(string s)
         {
-            byte[] retval = new byte[s.Length];
-            for (int ix = 0; ix < s.Length; ++ix)
+            var retval = new byte[s.Length];
+            for (var ix = 0; ix < s.Length; ++ix)
             {
-                char ch = s[ix];
+                var ch = s[ix];
                 if (ch <= 0x7f) retval[ix] = (byte)ch;
                 else retval[ix] = (byte)'?';
             }
             return retval;
         }
+
+        public void LoadInitialJsonData(Stream defaultStream)
+        {
+            if (string.IsNullOrEmpty(_settingsStorage.DefaultJsonData))
+            {
+                var json = new StreamReader(defaultStream).ReadToEnd();
+                _settingsStorage.DefaultJsonData = json;
+            }
+        }
     }
-}
+} 

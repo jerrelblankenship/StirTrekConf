@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO.IsolatedStorage;
-
-namespace MathBlaster
+﻿namespace StirTrekWPDomain
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO.IsolatedStorage;
+
     public class AppSettingsStorage
     {
         // Our isolated storage settings

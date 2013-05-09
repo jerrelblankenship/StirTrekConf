@@ -59,6 +59,14 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
+
+        <Style x:Key="SponsorType" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#7AA9B3"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

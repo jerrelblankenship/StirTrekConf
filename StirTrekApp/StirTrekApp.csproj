@@ -74,6 +74,9 @@
     <Compile Include="Pages\SpeakerDetail.xaml.cs">
       <DependentUpon>SpeakerDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SponsorDetail.xaml.cs">
+      <DependentUpon>SponsorDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SpeakerDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SponsorDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

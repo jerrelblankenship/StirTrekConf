@@ -95,18 +95,25 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PivotItem>
-            <controls:PivotItem Header="Sponsors">
-                <ListBox Name="SponsorList" Margin="3">
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <TextBlock Text="Sponsors" Foreground="#7AA9B3"></TextBlock>
+                </controls:PivotItem.Header>
+                <ListBox Name="SponsorList" Margin="3" SelectionChanged="SponsorList_OnSelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:Name="SponsorDataTemplate">
-                            <Grid>
+                            <Grid Margin="0,10,0,10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Height="50" Width="50" Source="..\Content\Sponsor\ApplicationIcon.png"></Image>
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                                <Image Grid.Column="0" Height="150" Width="175" Source="{Binding GetProperLogoUrl}"/>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource SpeakerName}" />
+                                    <TextBlock Text="{Binding SponsorType}" Style="{StaticResource SponsorType}" />
+                                </StackPanel>
+                                <TextBlock Text="{Binding Id}" Visibility="Collapsed"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

@@ -43,9 +43,12 @@ namespace StirTrekApp.Pages
                 .ToList();
 
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
+            
             SpeakerList.ItemsSource = StirTrekFeed.Speakers
                 .OrderBy(x => x.Name);
-            SponsorList.ItemsSource = StirTrekFeed.Sponsors;
+
+            SponsorList.ItemsSource = StirTrekFeed.Sponsors
+                .OrderBy(x => x.Name);
         }
 
         private void ScheduleList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,6 +66,15 @@ namespace StirTrekApp.Pages
             {
                 NavigationService.Navigate(
                     new Uri(string.Format("/Pages/SpeakerDetail.xaml?speakerId={0}", ((Speaker)e.AddedItems[0]).Id), UriKind.Relative));
+            }
+        }
+
+        private void SponsorList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 1)
+            {
+                NavigationService.Navigate(
+                    new Uri(string.Format("/Pages/SponsorDetail.xaml?sponsorId={0}", ((Sponsor)e.AddedItems[0]).Id), UriKind.Relative));
             }
         }
     }

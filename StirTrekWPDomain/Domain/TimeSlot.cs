@@ -10,7 +10,7 @@
 
         public string DisplayTimeRange
         {
-            get { return string.Format("{0} -- {1}", StartTime.ToShortTimeString(), EndTime.ToShortTimeString()); }
+            get { return string.Format("{0} - {1}", StartTime.ToShortTimeString(), EndTime.ToShortTimeString()); }
         }
     }
 }

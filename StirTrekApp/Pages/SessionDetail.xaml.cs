@@ -25,7 +25,7 @@ namespace StirTrekApp.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            string parameter = string.Empty;
+            string parameter;
             if (NavigationContext.QueryString.TryGetValue("sessionId", out parameter))
             {
                 Session = (App.Current as App).StirTrekFeed.Sessions.FirstOrDefault(x => x.Id == Convert.ToInt32(parameter));
@@ -35,9 +35,6 @@ namespace StirTrekApp.Pages
         void SessionDetail_Loaded(object sender, RoutedEventArgs e)
         {
             ContentPanel.DataContext = Session;
-            //SessionID.Text = Session.Id.ToString();
-            //SessionName.Text = Session.Name;
-            //SessionAbstract.Text = Session.Abstract;
         }
     }
 }

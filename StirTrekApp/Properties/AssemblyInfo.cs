@@ -7,11 +7,11 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Stir Trek WP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A conference guid for Stir Trek 2013 in Columbus, OH")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Jerrel Blankenship")]
 [assembly: AssemblyProduct("Stir Trek WP")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCopyright("Copyright © Jerrel Blankenship 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyFileVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.1.*")]
+[assembly: AssemblyFileVersion("1.0.1.*")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

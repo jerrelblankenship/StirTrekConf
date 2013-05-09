@@ -52,6 +52,7 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettingsStorage.cs" />
     <Compile Include="Domain\ScheduleEntry.cs" />
     <Compile Include="Domain\Session.cs" />
     <Compile Include="Domain\Speaker.cs" />

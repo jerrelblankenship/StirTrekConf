@@ -1,10 +1,12 @@
 namespace StirTrekApp.Pages
 {
     using System;
+    using System.IO;
     using System.Linq;
     using System.Net;
     using System.Windows.Controls;
     using Microsoft.Phone.Controls;
+    using Microsoft.Phone.Shell;
     using StirTrekWPDomain;
     using StirTrekWPDomain.Domain;
 
@@ -12,6 +14,7 @@ namespace StirTrekApp.Pages
     {
         public Processor DataProcessor { get; set; }
         public StirTrekFeed StirTrekFeed { get; set; }
+        public WebClient WbClient { get; set; }
 
         // Constructor
         public MainPage()
@@ -19,22 +22,28 @@ namespace StirTrekApp.Pages
             DataProcessor = new Processor();
             InitializeComponent();
             GetStirTrekData();
-
-            
         }
 
         public void GetStirTrekData()
         {
-            var wbclient = new WebClient();
-            var jsonUri = new Uri("http://stirtrek.com/Feed/JSON");
-
-            wbclient.OpenReadCompleted += wbclient_OpenReadCompleted;
-            wbclient.OpenReadAsync(jsonUri, UriKind.Absolute);  
+            WbClient = new WebClient();
+            var lastUpdate = new Uri("http://stirtrek.com/Feed/lastupdate");
+            
+            try
+            {
+                WbClient.OpenReadCompleted += wbclient_OpenReadCompleted_LastUpdate;
+                WbClient.OpenReadAsync(lastUpdate, UriKind.Absolute);
+                 
+            }
+            catch (Exception)
+            {
+                GetDefaultJsonData();
+            }
         }
 
-        public void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
+        private void GetDefaultJsonData()
         {
-            StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
+            StirTrekFeed = DataProcessor.LoadDefaultStirTrekData();
             (App.Current as App).StirTrekFeed = StirTrekFeed;
 
             SessionList.ItemsSource = StirTrekFeed.Sessions
@@ -43,12 +52,54 @@ namespace StirTrekApp.Pages
                 .ToList();
 
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
-            
+
             SpeakerList.ItemsSource = StirTrekFeed.Speakers
                 .OrderBy(x => x.Name);
 
             SponsorList.ItemsSource = StirTrekFeed.Sponsors
                 .OrderBy(x => x.Name);
+        }
+
+        private void PopulateStirTrekData(Stream stream)
+        {
+            StirTrekFeed = DataProcessor.LoadStirTrekData(stream);
+            (App.Current as App).StirTrekFeed = StirTrekFeed;
+
+            SessionList.ItemsSource = StirTrekFeed.Sessions
+                .Where(x => x.SpeakerIds.Count > 0)
+                .OrderBy(x => x.Name)
+                .ToList();
+
+            ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
+
+            SpeakerList.ItemsSource = StirTrekFeed.Speakers
+                .OrderBy(x => x.Name);
+
+            SponsorList.ItemsSource = StirTrekFeed.Sponsors
+                .OrderBy(x => x.Name);
+        }
+
+        public void wbclient_OpenReadCompleted_LastUpdate(object sender, OpenReadCompletedEventArgs e)
+        {
+            var needsUpdated = DataProcessor.CheckCacheValue(e.Result);
+
+            if (needsUpdated)
+            {
+                var jsonUri = new Uri("http://stirtrek.com/Feed/JSON");
+
+                WbClient.OpenReadCompleted -= wbclient_OpenReadCompleted_LastUpdate;
+                WbClient.OpenReadCompleted += wbclient_OpenReadCompleted;
+                WbClient.OpenReadAsync(jsonUri, UriKind.Absolute); 
+            }
+            else
+            {
+                GetDefaultJsonData();
+            }
+        }
+
+        public void wbclient_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
+        {
+            PopulateStirTrekData(e.Result);
         }
 
         private void ScheduleList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -11,7 +11,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    x:Name="mypage3">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -23,28 +24,27 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Stir Trek WP" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3"></TextBlock>
-            <TextBlock Text="Speaker Detail" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
+            <TextBlock Text="Speakers" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <Image Height="125" Width="125" Name="SpeakerPic"></Image>
-                
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Speaker ID: "></TextBlock>
-                    <TextBlock Name="SpeakerID"></TextBlock>
-                </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <StackPanel>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name: "></TextBlock>
-                    <TextBlock Name="SpeakerName"></TextBlock>
+                        <Image Grid.Column="0" Height="175" Width="175" Name="SpeakerPic"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Name="SpeakerName" Style="{StaticResource SpeakerName}"/>
+                    </Grid>
+                    <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage3, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
+                        <TextBlock Width="460" Name="SpeakerBio" TextWrapping="Wrap"/>
+                    </Border>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Bio: " TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Width="400" Name="SpeakerBio" TextWrapping="Wrap"></TextBlock>
-                </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

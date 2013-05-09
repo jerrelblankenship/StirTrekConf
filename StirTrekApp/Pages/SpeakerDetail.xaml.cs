@@ -35,7 +35,6 @@ namespace StirTrekApp.Pages
 
         void SpeakerDetail_Loaded(object sender, RoutedEventArgs e)
         {
-            SpeakerID.Text = Speaker.Id.ToString();
             SpeakerName.Text = Speaker.Name;
             SpeakerBio.Text = Speaker.Bio;
             SpeakerPic.Source = new BitmapImage(new Uri(Speaker.ImageUrl, UriKind.RelativeOrAbsolute)); 

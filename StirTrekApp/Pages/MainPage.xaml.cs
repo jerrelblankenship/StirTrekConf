@@ -77,5 +77,10 @@ namespace StirTrekApp.Pages
                     new Uri(string.Format("/Pages/SponsorDetail.xaml?sponsorId={0}", ((Sponsor)e.AddedItems[0]).Id), UriKind.Relative));
             }
         }
+
+        private void ApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/About.xaml", UriKind.Relative));
+        }
     }
 }

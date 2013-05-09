@@ -13,7 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    x:Name="myPage" Background="#FF7AA9B3">
+    x:Name="myPage">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
@@ -74,18 +74,22 @@
                    </ListBox.ItemTemplate>
                </ListBox>
             </controls:PivotItem>
-            <controls:PivotItem Header="Speakers">
-                <ListBox Name="SpeakerList" Margin="3">
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <TextBlock Text="Speakers" Foreground="#7AA9B3"></TextBlock>
+                </controls:PivotItem.Header>
+                <ListBox Name="SpeakerList" Margin="3" SelectionChanged="SpeakerList_OnSelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:Name="SpeakerDataTemplate">
-                            <Grid>
+                            <Grid Margin="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Height="50" Width="50" Source="..\Content\Speaker\ApplicationIcon.png"></Image>
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                                <Image Grid.Column="0" Height="125" Width="125" Source="{Binding ImageUrl}"></Image>
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" Style="{StaticResource SpeakerName}" />
+                                <TextBlock Text="{Binding Id}" Visibility="Collapsed"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

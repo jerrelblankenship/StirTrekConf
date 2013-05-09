@@ -51,6 +51,14 @@
             <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
             <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
+
+        <Style x:Key="SpeakerName" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFC68E32"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

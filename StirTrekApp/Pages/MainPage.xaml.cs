@@ -1,6 +1,7 @@
 namespace StirTrekApp.Pages
 {
     using System;
+    using System.Linq;
     using System.Net;
     using System.Windows.Controls;
     using Microsoft.Phone.Controls;
@@ -36,7 +37,11 @@ namespace StirTrekApp.Pages
             StirTrekFeed = DataProcessor.LoadStirTrekData(e.Result);
             (App.Current as App).StirTrekFeed = StirTrekFeed;
 
-            SessionList.ItemsSource = StirTrekFeed.Sessions;
+            SessionList.ItemsSource = StirTrekFeed.Sessions
+                .Where(x => x.SpeakerIds.Count > 0)
+                .OrderBy(x => x.Name)
+                .ToList();
+
             ScheduleList.ItemsSource = DataProcessor.GenerateSchedule(StirTrekFeed);
             SpeakerList.ItemsSource = StirTrekFeed.Speakers;
             SponsorList.ItemsSource = StirTrekFeed.Sponsors;

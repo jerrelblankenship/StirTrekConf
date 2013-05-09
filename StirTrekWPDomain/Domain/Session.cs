@@ -29,7 +29,7 @@ namespace StirTrekWPDomain.Domain
 
         public string DisplayTags
         {
-            get { return string.Join(",", Tags); }
+            get { return string.Join(" ", Tags); }
         }
 
         public string DisplaySpeakers

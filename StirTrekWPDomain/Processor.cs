@@ -45,7 +45,11 @@
             var scheduleList = new List<ScheduleEntry>();
             foreach (var timeSlot in feed.TimeSlots)
             {
-                var sessionList = feed.Sessions.Where(x => x.TimeSlotId == timeSlot.Id).ToList();
+                var sessionList = feed.Sessions
+                    .Where(x => x.TimeSlotId == timeSlot.Id)
+                    .OrderBy(x => x.TrackId)
+                    .ToList();
+
                 scheduleList.Add(new ScheduleEntry{TimeSlot = timeSlot, Sessions = sessionList});
             }
 

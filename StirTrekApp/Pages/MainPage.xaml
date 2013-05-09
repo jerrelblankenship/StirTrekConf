@@ -55,24 +55,22 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PivotItem>
-            <controls:PivotItem Header="Sessions">
-               <ListBox Name="SessionList" Margin="3">
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <TextBlock Text="Sessions" Foreground="#7AA9B3"></TextBlock>
+                </controls:PivotItem.Header>
+                <ListBox Name="SessionList" Margin="3" SelectionChanged="ScheduleList_OnSelectionChanged">
                    <ListBox.ItemTemplate>
                        <DataTemplate x:Name="SessionDataTemplate">
-                           <Grid>
-                               <Grid.RowDefinitions>
-                                   <RowDefinition></RowDefinition>
-                                   <RowDefinition></RowDefinition>
-                               </Grid.RowDefinitions>
-                               
-                               <TextBlock Grid.Row="0" Text="{Binding Name}" />
-                               <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,5">
-                                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" />
-                                    <TextBlock TextWrapping="Wrap" Margin="0,3,0,3" Text="{Binding DisplayTrackInfo}" />
-                               </StackPanel>
-                               
-                           </Grid>
-                       </DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,5,0,5">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Style="{StaticResource SessionEntry}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" Style="{StaticResource ScheduleAuthorEntry}"/>
+                                    <TextBlock Text="{Binding DisplayTags}" Style="{StaticResource SessionTags}"></TextBlock>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Id}" Visibility="Collapsed"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
                    </ListBox.ItemTemplate>
                </ListBox>
             </controls:PivotItem>
@@ -86,7 +84,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Speaker\ApplicationIcon.png"></Image>
+                                <Image Grid.Column="0" Height="50" Width="50" Source="..\Content\Speaker\ApplicationIcon.png"></Image>
                                 <TextBlock Grid.Column="1" Text="{Binding Name}" />
                             </Grid>
                         </DataTemplate>
@@ -103,7 +101,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Height="50" Width="50" Source="Content\Sponsor\ApplicationIcon.png"></Image>
+                                <Image Grid.Column="0" Height="50" Width="50" Source="..\Content\Sponsor\ApplicationIcon.png"></Image>
                                 <TextBlock Grid.Column="1" Text="{Binding Name}" />
                             </Grid>
                         </DataTemplate>

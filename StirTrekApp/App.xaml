@@ -17,24 +17,39 @@
         <Style x:Key="ScheduleSessionEntry" TargetType="TextBlock" >
             <Setter Property="Foreground" Value="#8D203A"/>
             <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Tahoma"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
         </Style>
         
         <Style x:Key="ScheduleAuthorEntry" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#FFC68E32"/>
             <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Tahoma"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
             <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
 
         <Style x:Key="ScheduleLocationEntry" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#FF0E69AE"/>
             <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Tahoma"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
             <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionEntry" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#8D203A"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>-->
+        </Style>
+
+        <Style x:Key="SessionTags" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#7AA9B3"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
+            <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
     </Application.Resources>
 

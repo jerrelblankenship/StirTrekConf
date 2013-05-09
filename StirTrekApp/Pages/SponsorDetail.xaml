@@ -23,26 +23,22 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Stir Trek WP" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3"></TextBlock>
-            <TextBlock Text="Sponsor Detail" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
+            <TextBlock Text="Sponsors" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <Image Height="175" Width="200" Name="SponsorPic"></Image>
-                <HyperlinkButton Name="SponsorUrl" TargetName="_blank"></HyperlinkButton>
-                
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="ID: "></TextBlock>
-                    <TextBlock Name="SponsorID"></TextBlock>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <StackPanel>
+                    <Image Height="225" Width="250" Name="SponsorPic"/>
+                    <TextBlock Name="SponsorName" HorizontalAlignment="Center" Style="{StaticResource SpeakerName}"/>
+                    <HyperlinkButton Name="SponsorUrl" TargetName="_blank" Style="{StaticResource HyperlinkButtonStyle1}"/>
+                    <TextBlock Name="SponsorTypeText" Style="{StaticResource SponsorType}" />
+                    <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage3, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
+                        <TextBlock Width="460" Name="SponsorDesc" TextWrapping="Wrap"/>
+                    </Border>
                 </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name: "></TextBlock>
-                    <TextBlock Name="SponsorName"></TextBlock>
-                </StackPanel>
-                <TextBlock Width="500" Name="SponsorDesc" TextWrapping="Wrap"></TextBlock>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

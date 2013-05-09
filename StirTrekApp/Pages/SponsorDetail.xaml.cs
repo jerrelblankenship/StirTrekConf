@@ -34,7 +34,7 @@ namespace StirTrekApp.Pages
         }
         void SponsorDetail_Loaded(object sender, RoutedEventArgs e)
         {
-            SponsorID.Text = Sponsor.Id.ToString();
+            SponsorTypeText.Text = Sponsor.SponsorType;
             SponsorName.Text = Sponsor.Name;
             SponsorDesc.Text = Sponsor.Description;
             SponsorPic.Source = new BitmapImage(new Uri(Sponsor.GetProperLogoUrl, UriKind.RelativeOrAbsolute));

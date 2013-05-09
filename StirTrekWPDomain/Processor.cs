@@ -37,6 +37,7 @@
                 }
 
                 session.Track = returnFeed.Tracks.FirstOrDefault(x => x.Id == session.TrackId);
+                session.TimeSlot = returnFeed.TimeSlots.FirstOrDefault(x => x.Id == session.TimeSlotId);
             }
         }
 

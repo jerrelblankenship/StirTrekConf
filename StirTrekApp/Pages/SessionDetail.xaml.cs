@@ -34,9 +34,10 @@ namespace StirTrekApp.Pages
 
         void SessionDetail_Loaded(object sender, RoutedEventArgs e)
         {
-            SessionID.Text = Session.Id.ToString();
-            SessionName.Text = Session.Name;
-            SessionAbstract.Text = Session.Abstract;
+            ContentPanel.DataContext = Session;
+            //SessionID.Text = Session.Id.ToString();
+            //SessionName.Text = Session.Name;
+            //SessionAbstract.Text = Session.Abstract;
         }
     }
 }

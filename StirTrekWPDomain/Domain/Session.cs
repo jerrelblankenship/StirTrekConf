@@ -3,6 +3,7 @@ namespace StirTrekWPDomain.Domain
 {
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
 
 
     public class Session
@@ -20,6 +21,7 @@ namespace StirTrekWPDomain.Domain
         public List<Speaker> Speakers { get; set; } 
 
         public int TimeSlotId { get; set; }
+        public TimeSlot TimeSlot { get; set; }
         
         [DefaultValue(-99)]
         public int TrackId { get; set; }
@@ -29,7 +31,11 @@ namespace StirTrekWPDomain.Domain
 
         public string DisplayTags
         {
-            get { return string.Join(" ", Tags); }
+            get
+            {
+                var result = Tags.Select(tag => "#" + tag).OrderBy(x=> x).ToList();
+                return string.Join("  ", result);
+            }
         }
 
         public string DisplaySpeakers

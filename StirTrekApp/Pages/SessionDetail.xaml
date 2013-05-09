@@ -11,7 +11,8 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    x:Name="myPage2">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -23,27 +24,25 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Stir Trek WP" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3"></TextBlock>
-            <TextBlock Text="Session Detail" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
+            <TextBlock Text="Session" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Session ID: "></TextBlock>
-                    <TextBlock Name="SessionID"></TextBlock>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Style="{StaticResource SessionDetailEntry}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" Style="{StaticResource SessionDetailSpeakerEntry}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTrackInfo}" Style="{StaticResource SessionDetailLocationEntry}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding TimeSlot.DisplayTimeRange}" Style="{StaticResource SessionDetailLocationEntry}"/>
+                    <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage2, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
+                        <StackPanel>
+                            <TextBlock Text="{Binding DisplayTags}" Style="{StaticResource SessionTags}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Abstract}" Width="470"></TextBlock>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name: "></TextBlock>
-                    <TextBlock Width="350" Name="SessionName" TextWrapping="Wrap"></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Abstract: " TextWrapping="Wrap"></TextBlock>
-                    <TextBlock Width="350" Name="SessionAbstract" TextWrapping="Wrap"></TextBlock>
-                </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

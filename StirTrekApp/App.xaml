@@ -67,6 +67,29 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
+
+        <Style x:Key="SessionDetailSpeakerEntry" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFC68E32"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionDetailLocationEntry" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF0E69AE"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <!--<Setter Property="FontFamily" Value="Tahoma"/>-->
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionDetailEntry" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#8D203A"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>-->
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

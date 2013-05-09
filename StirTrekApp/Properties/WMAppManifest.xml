@@ -1,33 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{03f0894e-2e10-43a2-80a2-23bc4215e2e6}" Title="StirTrekApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="StirTrekApp author" Description="Sample description" Publisher="StirTrekApp">
+  <App xmlns="" ProductID="{03f0894e-2e10-43a2-80a2-23bc4215e2e6}" Title="Stir Trek WP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Jerrel Blankenship" Description="This App is a handy conference app for the 2013 Stir Trek Conference in Columbus, OH. With this app you will be able to see the schedule of events as well as the sessions/speakers/sponsors that make up this great conference." Publisher="Jerrel Blankenship">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_GAMERSERVICES"/>
-      <Capability Name="ID_CAP_IDENTITY_DEVICE"/>
-      <Capability Name="ID_CAP_IDENTITY_USER"/>
-      <Capability Name="ID_CAP_LOCATION"/>
-      <Capability Name="ID_CAP_MEDIALIB"/>
-      <Capability Name="ID_CAP_MICROPHONE"/>
-      <Capability Name="ID_CAP_NETWORKING"/>
-      <Capability Name="ID_CAP_PHONEDIALER"/>
-      <Capability Name="ID_CAP_PUSH_NOTIFICATION"/>
-      <Capability Name="ID_CAP_SENSORS"/>
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT"/>
-      <Capability Name="ID_CAP_ISV_CAMERA"/>
-      <Capability Name="ID_CAP_CONTACTS"/>
-      <Capability Name="ID_CAP_APPOINTMENTS"/>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+      <Capability Name="ID_CAP_MEDIALIB" />
     </Capabilities>
     <Tasks>
-      <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="StirTrekAppToken" TaskName="_default">
         <TemplateType5>
           <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
           <Count>0</Count>
-          <Title>StirTrekApp</Title>
+          <Title>Stir Trek WP</Title>
         </TemplateType5>
       </PrimaryToken>
     </Tokens>

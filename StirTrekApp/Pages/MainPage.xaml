@@ -19,7 +19,7 @@
     <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
         <controls:Pivot>
             <controls:Pivot.Title>
-                <TextBlock Text="Stir Trek WP" Foreground="#7AA9B3"/>
+                <TextBlock Text="Stir Trek Conf" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3" Margin="0"/>
             </controls:Pivot.Title>
             <controls:PivotItem>
                 <controls:PivotItem.Header>

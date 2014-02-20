@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,7 +22,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Stir Trek WP" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3"/>
+            <TextBlock Text="Stir Trek Conf" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3"/>
             <TextBlock Text="Sponsors" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#7AA9B3"/>
         </StackPanel>
 
@@ -32,10 +32,10 @@
                 <StackPanel>
                     <Image Height="225" Width="250" Name="SponsorPic"/>
                     <TextBlock Name="SponsorName" HorizontalAlignment="Center" Style="{StaticResource SpeakerName}"/>
-                    <HyperlinkButton Name="SponsorUrl" TargetName="_blank" Style="{StaticResource HyperlinkButtonStyle1}"/>
+                    <HyperlinkButton Name="SponsorUrl" TargetName="_blank" Foreground="Black" Style="{StaticResource HyperlinkButtonStyle1}"/>
                     <TextBlock Name="SponsorTypeText" Style="{StaticResource SponsorType}" />
                     <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage3, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
-                        <TextBlock Width="460" Name="SponsorDesc" TextWrapping="Wrap"/>
+                        <TextBlock Width="460" Foreground="Black" Name="SponsorDesc" TextWrapping="Wrap"/>
                     </Border>
                 </StackPanel>
             </ScrollViewer>

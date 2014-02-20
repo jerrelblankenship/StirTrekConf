@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="" />
-  <App xmlns="" ProductID="{7739381b-cf4d-4f1c-8665-e873e33ffbce}" Title="Stir Trek WP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Jerrel Blankenship" Description="This App is a handy conference app for the 2013 Stir Trek Conference in Columbus, OH. With this app you will be able to see the schedule of events as well as the sessions/speakers/sponsors that make up this great conference." Publisher="Jerrel Blankenship" PublisherID="{95a25af3-795f-4957-b8d9-318c78d2e8e3}">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{03f0894e-2e10-43a2-80a2-23bc4215e2e6}" Title="Stir Trek WP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Jerrel Blankenship" Description="This App is a handy conference app for the 2013 Stir Trek Conference in Columbus, OH. With this app you will be able to see the schedule of events as well as the sessions/speakers/sponsors that make up this great conference." Publisher="Jerrel Blankenship">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -9,36 +8,19 @@
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_MEDIALIB" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Pages/MainPage.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="StirTrekAppToken" TaskName="_default">
-        <TemplateFlip>
-          <SmallImageURI IsResource="false" IsRelative="true">Background.png</SmallImageURI>
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Background.png</BackgroundImageURI>
           <Title>Stir Trek WP</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <DeviceLockImageURI>
-          </DeviceLockImageURI>
-          <HasLarge>false</HasLarge>
-        </TemplateFlip>
+        </TemplateType5>
       </PrimaryToken>
     </Tokens>
-    <ScreenResolutions>
-      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
-      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
-      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
-    </ScreenResolutions>
   </App>
 </Deployment>

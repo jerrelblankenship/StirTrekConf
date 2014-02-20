@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{dcde346e-834f-4d43-9ebe-88c818c358af}" Title="Stir Trek WP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Jerrel Blankenship" Description="This App is a handy conference app for the 2013 Stir Trek Conference in Columbus, OH. With this app you will be able to see the schedule of events as well as the sessions/speakers/sponsors that make up this great conference." Publisher="Jerrel Blankenship" PublisherID="{2f5bc043-52e3-477b-9ce2-6514e48edc8e}">
+  <App xmlns="" ProductID="{2e13874c-f624-447d-8402-22c154add30c}" Title="Stir Trek Conf" RuntimeType="Silverlight" Version="1.2.0.0" Genre="apps.normal" Author="Jerrel Blankenship" Description="This App is a handy conference app for the annual Stir Trek Conference in Columbus, OH. With this app you will be able to see the schedule of events as well as the sessions/speakers/sponsors that make up this great conference." Publisher="JBlankenship" PublisherID="{96566c56-266e-431a-90b2-087ef4d46650}">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -22,11 +22,15 @@
           <SmallImageURI IsResource="false" IsRelative="true">Background.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsResource="false" IsRelative="true">Background.png</BackgroundImageURI>
-          <Title>Stir Trek WP</Title>
-          <BackContent></BackContent>
-          <BackBackgroundImageURI></BackBackgroundImageURI>
-          <BackTitle></BackTitle>
-          <DeviceLockImageURI></DeviceLockImageURI>
+          <Title>Stir Trek Conf</Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
           <HasLarge>false</HasLarge>
         </TemplateFlip>
       </PrimaryToken>

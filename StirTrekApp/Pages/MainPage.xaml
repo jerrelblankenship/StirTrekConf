@@ -84,7 +84,7 @@
                             <Grid Margin="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Image Grid.Column="0" Height="125" Width="125" Source="{Binding ImageUrl}"/>

@@ -34,11 +34,11 @@
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <Image Grid.Column="0" Height="175" Width="175" Name="SpeakerPic"/>
-                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Name="SpeakerName" Style="{StaticResource SpeakerName}"/>
+                        <TextBlock Grid.Column="1" Name="SpeakerName" Style="{StaticResource SpeakerName}"/>
                     </Grid>
                     <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage3, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
                         <TextBlock Width="460" Foreground="Black" Name="SpeakerBio" TextWrapping="Wrap"/>

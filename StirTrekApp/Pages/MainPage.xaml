@@ -16,7 +16,7 @@
     x:Name="myPage">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
         <controls:Pivot>
             <controls:Pivot.Title>
                 <TextBlock Text="Stir Trek WP" Foreground="#7AA9B3"/>

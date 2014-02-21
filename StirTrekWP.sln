@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StirTrekApp", "StirTrekApp\StirTrekApp.csproj", "{03F0894E-2E10-43A2-80A2-23BC4215E2E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StirTrekWPDomain", "StirTrekWPDomain\StirTrekWPDomain.csproj", "{9B39C9B2-CB92-4F59-B317-5738BA837C2B}"

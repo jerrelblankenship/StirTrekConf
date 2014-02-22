@@ -161,3 +161,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+StirTrekApp/Properties/AppManifest.xml
+StirTrekApp/Properties/WMAppManifest.xml
+StirTrekApp/Properties/AssemblyInfo.cs

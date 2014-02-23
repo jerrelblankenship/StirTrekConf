@@ -164,3 +164,6 @@ pip-log.txt
 StirTrekApp/Properties/AppManifest.xml
 StirTrekApp/Properties/WMAppManifest.xml
 StirTrekApp/Properties/AssemblyInfo.cs
+StirTrekApp/Content/StirTrek-AppIcon.png
+StirTrekApp/Content/StirTrek-MediumTile.png
+StirTrekApp/Content/StirTrek-SmallTile.png

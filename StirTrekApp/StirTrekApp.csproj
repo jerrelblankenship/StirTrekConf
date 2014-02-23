@@ -167,6 +167,9 @@
     <Content Include="Content\Sponsor\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\StirTrek-AppIcon.png" />
+    <Content Include="Content\StirTrek-MediumTile.png" />
+    <Content Include="Content\StirTrek-SmallTile.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

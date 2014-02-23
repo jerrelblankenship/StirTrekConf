@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -17,7 +18,11 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
-        <controls:Pivot>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+        </Grid.RowDefinitions>
+        <controls:Pivot Grid.Row="0">
             <controls:Pivot.Title>
                 <TextBlock Text="Stir Trek Conf" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#7AA9B3" Margin="0"/>
             </controls:Pivot.Title>
@@ -60,8 +65,8 @@
                     <TextBlock Text="Sessions" Foreground="#7AA9B3"/>
                 </controls:PivotItem.Header>
                 <ListBox Name="SessionList" Margin="3" SelectionChanged="ScheduleList_OnSelectionChanged">
-                   <ListBox.ItemTemplate>
-                       <DataTemplate x:Name="SessionDataTemplate">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:Name="SessionDataTemplate">
                             <StackPanel Orientation="Vertical" Margin="0,5,0,5">
                                 <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Style="{StaticResource SessionEntry}" />
                                 <StackPanel Orientation="Horizontal">
@@ -71,8 +76,8 @@
                                 <TextBlock Text="{Binding Id}" Visibility="Collapsed"/>
                             </StackPanel>
                         </DataTemplate>
-                   </ListBox.ItemTemplate>
-               </ListBox>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
             <controls:PivotItem>
                 <controls:PivotItem.Header>
@@ -120,6 +125,7 @@
                 </ListBox>
             </controls:PivotItem>
         </controls:Pivot>
+        <ui:AdControl Grid.Row="1" ApplicationId="test_client" AdUnitId="Image300_50" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="480" Margin="0,0,0,0"/>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->

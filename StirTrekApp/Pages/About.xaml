@@ -42,6 +42,13 @@
                     <TextBlock Foreground="Black" TextDecorations="Underline">support@jerrelblankenship.com</TextBlock>
                 </Button>
             </StackPanel>
+            
+            <StackPanel Margin="4" HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center" Text="A tremendous thanks to the Stir Trek Conference for allowing us use of conference icons." Foreground="#FFC68E32" TextWrapping="Wrap" Width="407"></TextBlock>
+                <HyperlinkButton Name="StirTrekLink" Width="300" Height="300" Background="Transparent">
+                    <Image Name="StirTrekImage" Source="../Content/StirTrek-stackedR.jpg"/>
+                </HyperlinkButton>
+            </StackPanel>
         </StackPanel>
     </Grid>
 

@@ -24,6 +24,14 @@ namespace StirTrekApp.Pages
             LoadInitialDefaultJsonData();
             InitializeComponent();
             GetStirTrekData();
+
+            AdControl1.ErrorOccurred += AdControl1_ErrorOccurred;
+        }
+
+        void AdControl1_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
+        {
+            var message = e.Error.Message;
+
         }
 
         public void LoadInitialDefaultJsonData()

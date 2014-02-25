@@ -125,7 +125,12 @@
                 </ListBox>
             </controls:PivotItem>
         </controls:Pivot>
-        <ui:AdControl Grid.Row="1" ApplicationId="test_client" AdUnitId="Image300_50" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="480" Margin="0,0,0,0"/>
+        <ui:AdControl Name="AdControl1" Grid.Row="1" 
+                      ApplicationId="test_client" 
+                      AdUnitId="TextAd" 
+                      HorizontalAlignment="Left" 
+                      Height="50" VerticalAlignment="Bottom" Width="480"
+                      Style="{StaticResource AdControlCustomColorStyle}"/>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->

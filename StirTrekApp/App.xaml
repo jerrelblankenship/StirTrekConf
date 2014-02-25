@@ -3,10 +3,28 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:ui="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI">
 
     <!--Application Resources-->
     <Application.Resources>
+        <Style x:Key="AdControlCustomColorStyle" TargetType="ui:AdControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ui:AdControl">
+                        <Border x:Name="ControlBorder" BorderBrush="DarkGray">
+                            <Border.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </Border.Resources>
+                            <StackPanel x:Name="LayoutRoot" Background="DarkGray" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="ScheduleHeader" TargetType="TextBlock" >
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>

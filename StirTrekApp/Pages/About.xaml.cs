@@ -20,6 +20,7 @@ namespace StirTrekApp.Pages
             InitializeComponent();
             var assembly = Assembly.GetExecutingAssembly().FullName;
             VersionNumber.Text = assembly.Split('=')[1].Split(',')[0];
+            StirTrekLink.NavigateUri = new Uri("http://stirtrek.com");
         }
 
         private void EmailSupport_Click(object sender, System.Windows.RoutedEventArgs e)

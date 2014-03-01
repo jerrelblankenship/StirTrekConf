@@ -22,7 +22,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>StirTrekApp_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>StirTrekApp.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>StirTrekApp.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>

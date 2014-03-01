@@ -32,7 +32,7 @@
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
                 <StackPanel>
                     <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Style="{StaticResource SessionDetailEntry}" />
-                    <TextBlock TextWrapping="Wrap" Text="{Binding DisplaySpeakers}" Style="{StaticResource SessionDetailSpeakerEntry}"/>
+                    <HyperlinkButton Tap="UIElement_OnTap" Content="{Binding DisplaySpeakers}" Style="{StaticResource SessionDetailSpeakerEntry}"/>
                     <TextBlock TextWrapping="Wrap" Text="{Binding DisplayTrackInfo}" Style="{StaticResource SessionDetailLocationEntry}"/>
                     <TextBlock TextWrapping="Wrap" Text="{Binding TimeSlot.DisplayTimeRange}" Style="{StaticResource SessionDetailLocationEntry}"/>
                     <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage2, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">

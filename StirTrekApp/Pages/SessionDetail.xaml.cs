@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 
 namespace StirTrekApp.Pages
 {
+    using System.Windows.Input;
     using StirTrekWPDomain.Domain;
 
     public partial class SessionDetail : PhoneApplicationPage
@@ -40,6 +41,12 @@ namespace StirTrekApp.Pages
         void SessionDetail_Loaded(object sender, RoutedEventArgs e)
         {
             ContentPanel.DataContext = Session;
+        }
+
+        private void UIElement_OnTap(object sender, GestureEventArgs e)
+        {
+            NavigationService.Navigate(
+                    new Uri(string.Format("/Pages/SpeakerDetail.xaml?speakerId={0}", Session.Speakers[0].Id), UriKind.Relative));
         }
     }
 }

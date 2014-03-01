@@ -29,6 +29,11 @@ namespace StirTrekApp.Pages
             if (NavigationContext.QueryString.TryGetValue("sessionId", out parameter))
             {
                 Session = (App.Current as App).StirTrekFeed.Sessions.FirstOrDefault(x => x.Id == Convert.ToInt32(parameter));
+
+                if (Session != null)
+                {
+                    Session.Abstract = Session.Abstract.Replace("\r\n", "");
+                }
             }
         }
 

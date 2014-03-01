@@ -38,9 +38,9 @@
                     <Border BorderBrush="#79716c" BorderThickness="0,5,0,0" Width="{Binding ElementName=myPage2, Path=Parent.ActualWidth}" Margin="0,15,0,0" Padding="0,15,0,0">
                         <StackPanel>
                             <TextBlock Text="{Binding DisplayTags}" Style="{StaticResource SessionTags}"/>
-                            <TextBlock Foreground="Black" TextWrapping="Wrap" Text="{Binding Abstract}" Width="470"/>
                         </StackPanel>
                     </Border>
+                    <TextBlock Foreground="Black" TextWrapping="Wrap" Text="{Binding Abstract}" />
                 </StackPanel>
             </ScrollViewer>
         </Grid>

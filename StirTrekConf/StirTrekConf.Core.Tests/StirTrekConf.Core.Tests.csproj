@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38F9AFE2-6A51-4CB9-96FF-9D5ACFF83D44}</ProjectGuid>
+    <ProjectGuid>{0A18A60F-661F-435C-B056-042C00A654EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StirTrekConf.Core</RootNamespace>
-    <AssemblyName>StirTrekConf.Core</AssemblyName>
+    <RootNamespace>StirTrekConf.Core.Tests</RootNamespace>
+    <AssemblyName>StirTrekConf.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="nunit.core">
+      <HintPath>..\packages\NUnitTestAdapter.1.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\NUnitTestAdapter.1.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\packages\NUnitTestAdapter.1.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.1.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,20 +58,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\DataProcessor.cs" />
-    <Compile Include="DataLayer\IDataProcessor.cs" />
-    <Compile Include="DomainLayer\ScheduleEntry.cs" />
-    <Compile Include="DomainLayer\Session.cs" />
-    <Compile Include="DomainLayer\Speaker.cs" />
-    <Compile Include="DomainLayer\Sponsor.cs" />
-    <Compile Include="DomainLayer\StirTrekFeed.cs" />
-    <Compile Include="DomainLayer\TimeSlot.cs" />
-    <Compile Include="DomainLayer\Track.cs" />
+    <Compile Include="DataLayer\DataProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebServiceLayer\RestProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StirTrekConf.Core\StirTrekConf.Core.csproj">
+      <Project>{38f9afe2-6a51-4cb9-96ff-9d5acff83d44}</Project>
+      <Name>StirTrekConf.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

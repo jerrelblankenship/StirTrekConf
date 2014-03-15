@@ -1,21 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StirTrekConf.Core.WebServiceLayer
+﻿namespace StirTrekConf.Core.WebServiceLayer
 {
+    using DataLayer;
+    using RestSharp;
     using StirTrekWPDomain.Domain;
 
     public class RestProcessor
     {
-        private string jsonFeedUrl = @"http://stirtrek.com/Feed/JSON";
-        private string feedLastUpdatedUrl = @"http://stirtrek.com/lastupdate";
+        private readonly IDataProcessor _dataProcessor;
+        private readonly RestClient _client;
+        
+        private const string StirTrekUrl = @"http://stirtrek.com";
+        private const string JsonFeedRequest = @"Feed/JSON";
+        private const string FeedLastUpdatedRequest = @"lastupdate";
+
+
+        public RestProcessor(IDataProcessor dataProcessor)
+        {
+            _dataProcessor = dataProcessor;
+            _client = new RestClient(StirTrekUrl);
+        }
 
         public StirTrekFeed GetStirTrekFeed()
         {
-            return new StirTrekFeed();
+            var request = new RestRequest(JsonFeedRequest, Method.GET);
+            var feed = new StirTrekFeed();
+
+            _client.ExecuteAsync(request, response =>
+            {
+                feed = _dataProcessor.DescerializeJsonFeed(response.Content);
+            });
+
+            return feed;
         }
+
+        
     }
 }

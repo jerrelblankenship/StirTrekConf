@@ -1,14 +1,15 @@
 ﻿namespace StirTrekConf.Core.DataLayer
 {
+    using System;
     using System.IO;
     using Newtonsoft.Json;
     using StirTrekWPDomain.Domain;
 
-    public class DataProcessor : IDataProcessor
+    public class JsonProcessor : IJsonProcessor
     {
         private readonly JsonSerializer _serializer;
 
-        public DataProcessor()
+        public JsonProcessor()
         {
             _serializer = new JsonSerializer
             {
@@ -26,6 +27,12 @@
             var feed = (StirTrekFeed) _serializer.Deserialize(streamReader, typeof (StirTrekFeed));
 
             return feed;
+        }
+
+        public DateTime DescerializeLastUpdated(string content)
+        {
+            var streamReader = new StreamReader(content);
+            return (DateTime) _serializer.Deserialize(streamReader, typeof (DateTime));
         }
 
         internal byte[] StringToAscii(string s)

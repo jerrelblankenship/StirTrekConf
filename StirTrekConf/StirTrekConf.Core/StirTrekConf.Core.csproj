@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\DataProcessor.cs" />
-    <Compile Include="DataLayer\IDataProcessor.cs" />
+    <Compile Include="DataLayer\JsonProcessor.cs" />
+    <Compile Include="DataLayer\IJsonProcessor.cs" />
     <Compile Include="DomainLayer\ScheduleEntry.cs" />
     <Compile Include="DomainLayer\Session.cs" />
     <Compile Include="DomainLayer\Speaker.cs" />

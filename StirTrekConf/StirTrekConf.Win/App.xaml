@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="StirTrekConf.Win.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StirTrekConf.Win"
+    xmlns:localData="using:StirTrekConf.Win.Data">
+
+    <Application.Resources>
+
+        <!-- Application-specific resources -->
+
+        <x:String x:Key="AppName">StirTrekConf.Win</x:String>
+
+    </Application.Resources>
+</Application>

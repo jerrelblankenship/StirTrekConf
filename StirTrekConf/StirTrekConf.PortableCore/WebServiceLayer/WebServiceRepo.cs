@@ -22,23 +22,27 @@
 
         public void LoadStirTrekFeed()
         {
-            var feedString = _restClient.GetData(StirTrekUrl, JsonFeedRequest);
+            _restClient.GetData(StirTrekUrl, JsonFeedRequest, (feed) =>
+            {
+                var feedObj = _jsonProcessor.DescerializeJsonFeed(feed);
 
-            var feed = _jsonProcessor.DescerializeJsonFeed(feedString);
-
-            _databaseConnection.SaveFeed(feed);
+                _databaseConnection.SaveFeed(feedObj);
+            });
         }
 
         public void GetLastUpdated()
         {
-            var feedString = _restClient.GetData(StirTrekUrl, FeedLastUpdatedRequest);
-            var needsUpdated = true;
+            _restClient.GetData(StirTrekUrl, FeedLastUpdatedRequest, (feed) =>
+            {
+                var needsUpdated = true;
 
-            var dateLastUpdated = _jsonProcessor.DescerializeLastUpdated(feedString);
+                var dateLastUpdated = _jsonProcessor.DescerializeLastUpdated(feed);
+                var previousUpdateDate = _databaseConnection.GetLastUpdated();
 
-            needsUpdated = dateLastUpdated > DateTime.MinValue;
+                needsUpdated = dateLastUpdated > previousUpdateDate;
 
-            _databaseConnection.SaveLastUpdated(needsUpdated);
+                _databaseConnection.SaveLastUpdatedInformation(needsUpdated, dateLastUpdated);
+            });
         }
     }
 }

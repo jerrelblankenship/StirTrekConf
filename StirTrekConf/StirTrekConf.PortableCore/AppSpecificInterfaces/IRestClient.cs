@@ -1,7 +1,9 @@
 ﻿namespace StirTrekConf.PortableCore.AppSpecificInterfaces
 {
+    using System;
+
     public interface IRestClient
     {
-        string GetData(string url , string feedRequest);
+        void GetData(string url, string feedRequest, Action<string> callback);
     }
 }

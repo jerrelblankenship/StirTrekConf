@@ -1,0 +1,113 @@
+﻿<Application x:Class="StirTrekConf.WinPhone.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:StirTrekConf.WinPhone.ViewModel"
+             xmlns:local="clr-namespace:StirTrekConf.WinPhone">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <local:LocalizedStrings x:Key="LocalizedStrings" />
+
+        <vm:ViewModelLocator x:Key="Locator"
+                             d:IsDataSource="True" />
+
+        <!--<Style x:Key="AdControlCustomColorStyle" TargetType="ui:AdControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ui:AdControl">
+                        <Border x:Name="ControlBorder" BorderBrush="DarkGray">
+                            <Border.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </Border.Resources>
+                            <StackPanel x:Name="LayoutRoot" Background="DarkGray" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+        <Style x:Key="ScheduleHeader" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <Setter Property="Margin" Value="{StaticResource PhoneHorizontalMargin}"/>
+        </Style>
+
+        <Style x:Key="ScheduleSessionEntry" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#8D203A"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+        </Style>
+
+        <Style x:Key="ScheduleAuthorEntry" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFC68E32"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="ScheduleLocationEntry" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF0E69AE"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionEntry" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#8D203A"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+        </Style>
+
+        <Style x:Key="SessionTags" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#7AA9B3"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SpeakerName" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFC68E32"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SponsorType" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#7AA9B3"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionDetailSpeakerEntry" TargetType="HyperlinkButton">
+            <Setter Property="Foreground" Value="#FFC68E32"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+
+        <Style x:Key="SessionDetailLocationEntry" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF0E69AE"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="SessionDetailEntry" TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#8D203A"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+        </Style>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService Launching="Application_Launching"
+                                       Closing="Application_Closing"
+                                       Activated="Application_Activated"
+                                       Deactivated="Application_Deactivated" />
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

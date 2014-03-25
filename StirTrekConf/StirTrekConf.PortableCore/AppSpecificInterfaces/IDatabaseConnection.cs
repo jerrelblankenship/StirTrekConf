@@ -1,10 +1,15 @@
 ﻿namespace StirTrekConf.PortableCore.AppSpecificInterfaces
 {
+    using System;
+    using System.Collections.Generic;
     using DomainLayer;
 
     public interface IDatabaseConnection
     {
         void SaveFeed(StirTrekFeed feed);
-        void SaveLastUpdated(bool needsUpdated);
+        void SaveLastUpdatedInformation(bool needsUpdated, DateTime lastUpdated);
+        DateTime GetLastUpdated();
+
+        StirTrekFeed StirTrekFeed { get; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace StirTrekWPDomain.Domain
+﻿namespace StirTrekConf.PortableCore.DomainLayer
 {
     using System.Collections.Generic;
 

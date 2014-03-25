@@ -58,20 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\JsonProcessorTests.cs" />
+    <Compile Include="WebServiceLayer\JsonProcessorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StirTrekConf.Core\StirTrekConf.Core.csproj">
-      <Project>{38f9afe2-6a51-4cb9-96ff-9d5acff83d44}</Project>
-      <Name>StirTrekConf.Core</Name>
-    </ProjectReference>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\StirTrekConf.PortableCore\StirTrekConf.PortableCore.csproj">
+      <Project>{a36259b2-3581-49b6-a5b9-f63869bfa79e}</Project>
+      <Name>StirTrekConf.PortableCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

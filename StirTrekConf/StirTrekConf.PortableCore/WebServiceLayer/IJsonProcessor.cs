@@ -1,7 +1,7 @@
-﻿namespace StirTrekConf.Core.DataLayer
+﻿namespace StirTrekConf.PortableCore.WebServiceLayer
 {
     using System;
-    using StirTrekWPDomain.Domain;
+    using DomainLayer;
 
     public interface IJsonProcessor
     {

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace StirTrekWPDomain.Domain
+﻿namespace StirTrekConf.PortableCore.DomainLayer
 {
+    using System.Collections.Generic;
+
     public class StirTrekFeed
     {
         public List<TimeSlot> TimeSlots { get; set; }

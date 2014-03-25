@@ -1,10 +1,9 @@
 ﻿
-namespace StirTrekWPDomain.Domain
+namespace StirTrekConf.PortableCore.DomainLayer
 {
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
-
 
     public class Session
     {

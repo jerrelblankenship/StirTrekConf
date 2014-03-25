@@ -1,9 +1,9 @@
-﻿namespace StirTrekConf.Core.DataLayer
+﻿namespace StirTrekConf.PortableCore.WebServiceLayer
 {
     using System;
     using System.IO;
+    using DomainLayer;
     using Newtonsoft.Json;
-    using StirTrekWPDomain.Domain;
 
     public class JsonProcessor : IJsonProcessor
     {
@@ -20,19 +20,21 @@
 
         public StirTrekFeed DescerializeJsonFeed(string content)
         {
-            byte[] byteArray = StringToAscii(content);
-            var stream = new MemoryStream(byteArray);
-            var streamReader = new StreamReader(stream);
-
-            var feed = (StirTrekFeed) _serializer.Deserialize(streamReader, typeof (StirTrekFeed));
-
-            return feed;
+            var streamReader = StringToStreamReader(content);
+            return (StirTrekFeed) _serializer.Deserialize(streamReader, typeof (StirTrekFeed));
         }
 
         public DateTime DescerializeLastUpdated(string content)
         {
-            var streamReader = new StreamReader(content);
+            var streamReader = StringToStreamReader(content);
             return (DateTime) _serializer.Deserialize(streamReader, typeof (DateTime));
+        }
+
+        internal StreamReader StringToStreamReader(string content)
+        {
+            byte[] byteArray = StringToAscii(content);
+            var stream = new MemoryStream(byteArray);
+            return new StreamReader(stream);
         }
 
         internal byte[] StringToAscii(string s)

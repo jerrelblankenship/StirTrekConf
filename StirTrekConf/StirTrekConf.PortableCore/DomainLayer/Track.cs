@@ -1,4 +1,4 @@
-﻿namespace StirTrekWPDomain.Domain
+﻿namespace StirTrekConf.PortableCore.DomainLayer
 {
     public class Track
     {

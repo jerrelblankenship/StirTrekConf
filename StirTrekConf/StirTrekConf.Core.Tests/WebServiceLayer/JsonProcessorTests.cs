@@ -1,7 +1,7 @@
 ﻿namespace StirTrekConf.Core.Tests.DataLayer
 {
-    using Core.DataLayer;
     using NUnit.Framework;
+    using PortableCore.WebServiceLayer;
 
     [TestFixture]
     public class JsonProcessorTests

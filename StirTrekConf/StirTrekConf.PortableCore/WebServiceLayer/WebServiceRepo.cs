@@ -20,13 +20,15 @@
             _jsonProcessor = jsonProcessor;
         }
 
-        public void LoadStirTrekFeed()
+        public void LoadStirTrekFeed(Action callback)
         {
             _restClient.GetData(StirTrekUrl, JsonFeedRequest, (feed) =>
             {
                 var feedObj = _jsonProcessor.DescerializeJsonFeed(feed);
 
                 _databaseConnection.SaveFeed(feedObj);
+
+                callback();
             });
         }
 

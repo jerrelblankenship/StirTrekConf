@@ -1,7 +1,6 @@
 ﻿namespace StirTrekConf.WinPhone.DependencyImplementation
 {
     using System;
-    using System.Threading.Tasks;
     using RestSharp;
     using IRestClient = PortableCore.AppSpecificInterfaces.IRestClient;
 

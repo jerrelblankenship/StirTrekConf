@@ -8,6 +8,7 @@
     {
         void SaveFeed(StirTrekFeed feed);
         void SaveLastUpdatedInformation(bool needsUpdated, DateTime lastUpdated);
+        List<Speaker> GetSpeakers();
         DateTime GetLastUpdated();
 
         StirTrekFeed StirTrekFeed { get; }

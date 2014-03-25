@@ -1,31 +1,44 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
 
 namespace StirTrekConf.Android
 {
+    using DependencyImplementation;
+    using Model;
+    using PortableCore.AppSpecificInterfaces;
+    using PortableCore.WebServiceLayer;
+
     [Activity(Label = "StirTrekConf.Android", MainLauncher = true, Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
-        int count = 1;
-
+        private IDatabaseConnection _databaseConnection;
+        
+        private ListView _listView;
+        
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
+            _databaseConnection = new DatabaseConnection();
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            
+            var wsRepo = new WebServiceRepo(new WebServiceClientDroid(), _databaseConnection, new JsonProcessor());
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            wsRepo.LoadStirTrekFeed(() => RunOnUiThread(LoadSpeakerData));
+        }
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+        void LoadSpeakerData()
+        {
+            var repo = new StirTrekRepo(_databaseConnection);
+
+            var tableItems = repo.GetSpeakers();
+            _listView = FindViewById<ListView>(Resource.Id.List);
+
+            // populate the listview with data
+            _listView.Adapter = new MainScreenAdapter(this, tableItems);
         }
     }
 }

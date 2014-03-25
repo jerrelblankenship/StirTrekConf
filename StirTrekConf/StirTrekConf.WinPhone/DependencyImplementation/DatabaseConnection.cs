@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO.IsolatedStorage;
+    using System.Linq;
     using PortableCore.AppSpecificInterfaces;
     using PortableCore.DomainLayer;
 
@@ -97,6 +98,11 @@
             AddOrUpdateValue("LastUpdateDate", lastUpdated);
             AddOrUpdateValue("NeedToBeUpdated", needsUpdated);
             Save();
+        }
+
+        public List<Speaker> GetSpeakers()
+        {
+            return StirTrekFeed.Speakers.OrderBy(x => x.Name).ToList();
         }
 
         public StirTrekFeed StirTrekFeed

@@ -18,7 +18,7 @@ namespace StirTrekConf.WinPhone.Model
 
         public void GetSpeakers(Action<List<Speaker>, Exception> callback)
         {
-            var speakerList = _dbConnection.StirTrekFeed.Speakers.OrderBy(x => x.Name).ToList();
+            var speakerList = _dbConnection.GetSpeakers();
 
             callback(speakerList, null);
         }

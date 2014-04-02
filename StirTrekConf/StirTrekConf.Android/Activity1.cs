@@ -9,7 +9,7 @@ namespace StirTrekConf.Android
     using PortableCore.AppSpecificInterfaces;
     using PortableCore.WebServiceLayer;
 
-    [Activity(Label = "StirTrekConf.Android", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Stir Trek Conf", MainLauncher = true, Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
         private IDatabaseConnection _databaseConnection;

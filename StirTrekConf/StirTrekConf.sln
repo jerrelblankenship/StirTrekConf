@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScreenShots", "ScreenShots", "{95989E6C-9FC2-4DBD-ADE0-3D34F744F75E}"
 	ProjectSection(SolutionItems) = preProject
 		AndroidScreenShot.png = AndroidScreenShot.png
+		IPhoneScreenshot.png = IPhoneScreenshot.png
 		WindowsPhoneScreenShot.png = WindowsPhoneScreenShot.png
 	EndProjectSection
 EndProject

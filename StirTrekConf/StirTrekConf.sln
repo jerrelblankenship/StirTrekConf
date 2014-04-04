@@ -17,6 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StirTrekConf.WinPhone", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StirTrekConf.iOS", "StirTrekConf.iOS\StirTrekConf.iOS.csproj", "{85B7446E-8D21-4762-ADB1-27C662B469E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScreenShots", "ScreenShots", "{95989E6C-9FC2-4DBD-ADE0-3D34F744F75E}"
+	ProjectSection(SolutionItems) = preProject
+		AndroidScreenShot.png = AndroidScreenShot.png
+		WindowsPhoneScreenShot.png = WindowsPhoneScreenShot.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -327,9 +333,9 @@ Global
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
-		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhone
-		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.Build.0 = Debug|iPhone
-		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.Deploy.0 = Debug|iPhone
+		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhoneSimulator
+		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.Build.0 = Debug|iPhoneSimulator
+		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|Mixed Platforms.Deploy.0 = Debug|iPhoneSimulator
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|x64.ActiveCfg = Debug|iPhone
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Debug|x86.ActiveCfg = Debug|iPhone
 		{85B7446E-8D21-4762-ADB1-27C662B469E6}.Release|Any CPU.ActiveCfg = Release|iPhone

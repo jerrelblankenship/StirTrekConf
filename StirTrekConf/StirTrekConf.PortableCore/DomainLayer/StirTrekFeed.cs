@@ -1,12 +1,18 @@
-﻿namespace StirTrekConf.PortableCore.DomainLayer
+﻿using System.Runtime.Serialization;
+
+namespace StirTrekConf.PortableCore.DomainLayer
 {
     using System.Collections.Generic;
 
+    [DataContract]
     public class StirTrekFeed
     {
+        
         public List<TimeSlot> TimeSlots { get; set; }
         public List<Track> Tracks { get; set; }
+        [DataMember]
         public List<Speaker> Speakers { get; set; }
+        
         public List<Session> Sessions { get; set; }
         public List<Sponsor> Sponsors { get; set; }
 

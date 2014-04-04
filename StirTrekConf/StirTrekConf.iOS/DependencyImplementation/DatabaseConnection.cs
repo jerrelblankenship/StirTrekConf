@@ -1,41 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
+using SQLite;
+using StirTrekConf.PortableCore.AppSpecificInterfaces;
+using StirTrekConf.PortableCore.DomainLayer;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-namespace StirTrekConf.Android.DependencyImplementation
+namespace StirTrekConf.iOS.DependencyImplementation
 {
-    using PortableCore.AppSpecificInterfaces;
-    using PortableCore.DomainLayer;
-    using SQLite;
-    using System;
-    using System.IO;
-
     public class DatabaseConnection : IDatabaseConnection
     {
         private SQLiteConnection _database;
 
         public DatabaseConnection()
         {
-            const string dbName = "cmmDatabase.db3";
-
-#if __ANDROID__
+            const string dbName = "stirTrekDB.db3";
             string locationPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var path = Path.Combine (locationPath, dbName);
-#else
-            var path = dbName;
-#endif
+            var path = Path.Combine(locationPath, dbName);
+
             _database = new SQLiteConnection(path);
             _database.CreateTable<Speaker>();
         }
-
         public void SaveFeed(StirTrekFeed feed)
         {
             _database.InsertAll(feed.Speakers);
@@ -54,6 +39,11 @@ namespace StirTrekConf.Android.DependencyImplementation
         public DateTime GetLastUpdated()
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsDataDownloaded()
+        {
+            return (_database.Table<Speaker>().ToList()).Count > 0;
         }
 
         public StirTrekFeed StirTrekFeed { get; private set; }

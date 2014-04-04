@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIDeviceFamily</key>
-	<array>
-		<integer>1</integer>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -14,13 +10,5 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>5.0</string>
-	<key>CFBundleDisplayName</key>
-	<string>Stir Trek Conf</string>
-	<key>CFBundleIdentifier</key>
-	<string>jblankenship</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
-	<key>NSMainNibFile</key>
-	<string></string>
 </dict>
 </plist>
